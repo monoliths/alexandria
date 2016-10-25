@@ -5,6 +5,11 @@ gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.0'
+
+# used for decoding images
+gem 'carrierwave'
+gem 'carrierwave-base64'
+
 group :development, :test do
   gem 'byebug', platform: :mri
   gem 'rspec-rails'

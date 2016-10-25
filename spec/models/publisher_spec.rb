@@ -17,6 +17,7 @@ RSpec.describe Publisher, type: :model do
   #   expect(publisher.valid?).to be true
   # end
 
+  it { should have_many(:books) }
   it 'has a valid Factory' do
     expect(build(:publisher)).to be_valid
   end
