@@ -3,6 +3,6 @@ class BookPresenter < BasePresenter
                 :released_on, :publisher_id, :author_id, :created_at,
                 :updated_at, :cover
   def cover
-    @object.cover.url.to_s
+    #@object.cover.url.to_s
   end
 end

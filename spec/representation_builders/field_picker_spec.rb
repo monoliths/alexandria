@@ -26,7 +26,6 @@ RSpec.describe 'FieldPicker' do
       # to test overriding the system. I am using  some metaprogramming here
       context 'with overriding method defined in presenter' do
         before { presenter.class.send(:define_method, :title) { 'Overridden!' } }
-
         it 'updates the presenter "data" with the title "Overridden!"' do
           expect(field_picker.pick.data).to eq ({
             'id' => rails_tutorial.id,

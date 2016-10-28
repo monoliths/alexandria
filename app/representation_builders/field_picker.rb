@@ -1,7 +1,7 @@
 class FieldPicker
   def initialize(presenter)
     @presenter = presenter
-    @params = presenter.params[:fields]
+    @fields = @presenter.params[:fields]
   end
 
   def pick
