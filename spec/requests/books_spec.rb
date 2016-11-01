@@ -85,21 +85,6 @@ RSpec.describe 'Books', type: :request do
           expect(json_body['data'].size).to eq 1
         end
       end
-
-      context "when sending invalid 'page' and  'per' parameters " do
-        before { get('/api/books?page=fake&per=10') }
-        it 'recieves HTTP status 400' do
-          expect(response.status).to eq 400
-        end
-
-        it 'recieves an error' do
-          expect(json_body['error']).to_not be nil
-        end
-
-        it "recieves 'page=fake' as an invalid param" do
-          expect(json_body['error']['invalid_params']).to eq 'page=fake'
-        end
-      end
     end # End of describe 'pagination'
   end
 end

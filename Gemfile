@@ -10,6 +10,9 @@ gem 'puma', '~> 3.0'
 gem 'carrierwave'
 gem 'carrierwave-base64'
 
+# used for pagination
+gem 'kaminari'
+
 group :development, :test do
   gem 'byebug', platform: :mri
   gem 'rspec-rails'

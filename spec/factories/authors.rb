@@ -13,9 +13,4 @@ FactoryGirl.define do
     given_name 'Sam'
     family_name 'Ruby'
   end
-
-  factory :hp_lovecraft, class: Author do
-    given_name 'Howard Phillips'
-    family_name 'Lovecraft'
-  end
 end
