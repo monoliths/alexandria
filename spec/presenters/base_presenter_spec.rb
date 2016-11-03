@@ -25,12 +25,34 @@ RSpec.describe BasePresenter do
       presenter.data = { something: 'cool' }
       expect(presenter.to_json).to eq '{"something":"cool"}'
     end
+  end
 
-    describe '.build_with' do
-      it 'stores ["id","title"] in build_attributes' do
-        Presenter.build_with :id, :title
-        expect(Presenter.build_attributes).to eq ['id','title']
-      end
+  describe '.build_with' do
+    it 'stores ["id","title"] in build_attributes' do
+      Presenter.build_with :id, :title
+      expect(Presenter.build_attributes).to eq ['id','title']
     end
   end
+
+  describe '.realted_to' do
+    it 'stores the correct value' do
+      Presenter.related_to :author, :publisher
+      expect(Presenter.relations).to eq ['author', 'publisher']
+    end
+  end
+
+  describe '.sort_by' do
+    it 'stores the correct value' do
+      Presenter.sort_by :id, :title
+      expect(Presenter.sort_attributes).to eq ['id', 'title']
+    end
+  end
+
+  describe '.filter_by' do
+    it 'stores the correct value' do
+      Presenter.filter_by :title
+      expect(Presenter.filter_attributes).to eq ['title']
+    end
+  end
+
 end
