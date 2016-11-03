@@ -86,5 +86,22 @@ RSpec.describe 'Books', type: :request do
         end
       end
     end # End of describe 'pagination'
+
+    describe 'sorting' do
+      context 'with valid column name "id"' do
+        it 'sorts the books by "id desc"' do
+          get('/api/books?sort=id&dir=desc')
+          expect(json_body['data'].first['id']).to eq agile_web_development.id
+          expect(json_body['data'].last['id']).to eq ruby_microscope.id
+        end
+      end
+
+      context 'with invalid column name "fid"' do
+        it 'returns HTTP "400 bad request"' do
+          get('/api/books?sort=fid&dir=desc')
+          expect(response.status).to eq 400
+        end
+      end
+    end
   end
 end
